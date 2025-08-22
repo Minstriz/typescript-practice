@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    /* Output & target */
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+
+    /* Module config - cho phép chạy cả CJS & ESM */
+    "module": "commonjs",                 // Dùng CommonJS khi chạy trực tiếp bằng ts-node
+    "moduleResolution": "node",           // Giúp import file dễ dàng
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+
+    /* Giúp build bundler khi cần */
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "allowImportingTsExtensions": true,
+
+    /* Strict mode */
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+
+    /* Project paths */
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+
+    /* Không xuất file khi chạy ts-node */
+    "noEmit": true,
+    "skipLibCheck": true
+  },
+  "include": ["src"]
+}
