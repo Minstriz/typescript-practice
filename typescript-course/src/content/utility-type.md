@@ -152,6 +152,9 @@ type CatObj = Record<
     age: number;
   }
 >;
+//tạo 1 object 2 key là boo và ba, từng key đều có name và age
+
+//ở đây tạo ra con mèo của tôi dựa trên CatObject 
 const myCat: CatObj = {
   boo: {
     name: "boo",
@@ -162,4 +165,23 @@ const myCat: CatObj = {
     age: 1,
   },
 };
+
+
+//dưới đây là ví dụ của typescript
+type CatName = "miffy" | "boris" | "mordred";
+ 
+interface CatInfo {
+  age: number;
+  breed: string;
+}
+ 
+const cats: Record<CatName, CatInfo> = {
+  miffy: { age: 10, breed: "Persian" },
+  boris: { age: 5, breed: "Maine Coon" },
+  mordred: { age: 16, breed: "British Shorthair" },
+};
+ 
+cats.boris;
+ 
+const cats: Record<CatName, CatInfo>
 ```

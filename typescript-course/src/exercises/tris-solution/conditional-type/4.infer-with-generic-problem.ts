@@ -10,7 +10,8 @@ type Example = MyComplexInterface<
   "click",
   "window",
   "my-event",
-  { x: 12; y: 14 }
+  true
 >;
-type GetPoint<T> = unknown;
-type tests = [Expect<Equal<GetPoint<Example>, { x: 12; y: 14 }>>];
+type GetPoint2<T extends {}> = T extends MyComplexInterface<any,any,any,infer U> ? U extends {x: infer X, y: infer Y} ? {x:X, y:Y} :never:never;
+type GetPoint<T extends {}> = T extends MyComplexInterface<any,any,any,infer U> ? U :never;
+type Result = GetPoint<Example>

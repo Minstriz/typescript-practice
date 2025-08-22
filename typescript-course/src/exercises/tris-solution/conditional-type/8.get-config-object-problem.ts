@@ -7,9 +7,12 @@ export type User = {
   name?: string;
   lastname?: string;
 };
-
 // Here declaration to be changed 🔥
-declare function getUser(config: Config): User;
+declare function getUser<
+  C extends Config,
+  Name = C["name"] extends true ? Pick<Required<User>,"name"> : {},
+  LName = C["lastname"] extends true ? Pick<Required<User>,"lastname"> : {},
+>(config: C): Name & LName;
 
 // test cases
 const user = getUser({ name: true, lastname: false });
